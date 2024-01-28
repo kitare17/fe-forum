@@ -5,7 +5,9 @@
     --light: #E8F5E9;
     --dark: #0F4229;
 }
-
+.main-background{
+    background-color:  #f35b27 !important;
+}
 .back-to-top {
     position: fixed;
     display: none;
