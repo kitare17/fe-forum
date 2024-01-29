@@ -1,11 +1,13 @@
-function Register(){
-    return(
-       <div>
-            <div style={{backgroundColor:"#42454a"}} className="container-fluid py-5">
+import {Link} from "react-router-dom";
+
+function Register() {
+    return (
+        <div>
+            <div style={{backgroundColor: "#ff9326"}} className="container-fluid py-5">
                 <div className="container">
                     <div className="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style={{maxWidth: "600px"}}>
                         <p className="fs-5 fw-bold text-primary">Đăng kí tài khoản mới</p>
-                        <h3 className="display-5 mb-5">Bạn vui lòng nhập thông tin bên dưới nhé!!</h3>
+                        <h3 className="display-5 mb-5 text-white">Bạn vui lòng nhập thông tin bên dưới nhé!!</h3>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-lg-7">
@@ -15,40 +17,52 @@ function Register(){
                                         <div className="form-floating">
                                             <input type="text" className="form-control border-0" id="gname"
                                                    placeholder="Gurdian Name"/>
-                                                <label htmlFor="gname">Your Name</label>
+                                            <label htmlFor="gname">Họ và tên</label>
                                         </div>
                                     </div>
                                     <div className="col-sm-6">
                                         <div className="form-floating">
                                             <input type="email" className="form-control border-0" id="gmail"
                                                    placeholder="Gurdian Email"/>
-                                                <label htmlFor="gmail">Your Email</label>
+                                            <label htmlFor="gmail"> Email</label>
                                         </div>
                                     </div>
                                     <div className="col-sm-6">
                                         <div className="form-floating">
                                             <input type="text" className="form-control border-0" id="cname"
                                                    placeholder="Child Name"/>
-                                                <label htmlFor="cname">Your Mobile</label>
+                                            <label htmlFor="cname">Số điện thoại</label>
                                         </div>
                                     </div>
                                     <div className="col-sm-6">
                                         <div className="form-floating">
                                             <input type="text" className="form-control border-0" id="cage"
                                                    placeholder="Child Age"/>
-                                                <label htmlFor="cage">Service Type</label>
+                                            <label htmlFor="cage">Tên đăng nhập</label>
                                         </div>
                                     </div>
-                                    <div className="col-12">
+                                    <div className="col-sm-6">
                                         <div className="form-floating">
-                                            <textarea className="form-control border-0"
-                                                      placeholder="Leave a message here" id="message"
-                                                      style={{height: "100px"}}></textarea>
-                                            <label htmlFor="message">Message</label>
+                                            <input type="password" className="form-control border-0" id="cage"
+                                                   placeholder="Child Age"/>
+                                            <label htmlFor="cage">Mật khẩu</label>
                                         </div>
                                     </div>
-                                    <div className="col-12 text-center">
-                                        <button className="btn btn-primary py-3 px-4" type="submit">Submit Now</button>
+                                    <div className="col-sm-6">
+                                        <div className="form-floating">
+                                            <input type="password" className="form-control border-0" id="cage"
+                                                   placeholder="Child Age"/>
+                                            <label htmlFor="cage">Nhập lại mật khẩu</label>
+                                        </div>
+                                    </div>
+
+                                    <div className="col-12  container">
+                                        <div className="row">
+                                            <Link to='/login' className="col-md-5 m-md-0 m-3" >Đã có tài khoản?</Link>
+
+                                            <button className="btn btn-primary py-3 px-4 col-md-2" type="submit">Đăng kí</button>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -59,4 +73,5 @@ function Register(){
         </div>
     )
 }
+
 export default Register;

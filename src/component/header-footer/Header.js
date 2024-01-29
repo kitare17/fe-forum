@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 const Header = () => {
     return (
         <div >
-            <div className="container-fluid bg-dark text-light px-0 py-2">
+            <div className="container-fluid text-light px-0 py-2" style={{backgroundColor: "#f27125"}}>
                 <div className="row gx-0 d-none d-lg-flex">
                     <div className="col-lg-7 px-5 text-start">
                         <div className="h-100 d-inline-flex align-items-center me-4">
@@ -27,9 +27,9 @@ const Header = () => {
                 </div>
             </div>
             <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 mt-2 mb-sm-3 mb-lg-0">
-                <a href="index.html" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
-                    <h1 className="m-0">FU forum</h1>
-                </a>
+                <Link to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
+                    <h1 className="m-0">FU Forum</h1>
+                </Link>
                 <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse"
                         data-bs-target="#navbarCollapse">
                     <span className="navbar-toggler-icon"></span>
@@ -53,13 +53,13 @@ const Header = () => {
                         <a href="contact.html" className="nav-item nav-link">Contact</a>
                     </div>
                     <div className="d-lg-flex justify-content-lg-between">
-                        <a href="" className="btn main-background py-4 px-lg-4 rounded-pill  m-2  d-lg-block">
+                        <Link to="/login" className="btn main-background py-4 px-lg-4 rounded-pill  m-2  d-lg-block">
                             Đăng nhập
-                            <i className="fa fa-arrow-right ms-3"></i>
-                        </a>
+
+                        </Link>
                         <Link to="/register" className="btn btn-primary py-4 px-lg-4 py-1 rounded-pill   m-2  d-lg-block">
                             Đăng kí
-                            <i className="fa fa-arrow-right ms-3"></i>
+
                         </Link>
                     </div>
 
