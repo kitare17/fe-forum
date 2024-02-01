@@ -1,55 +1,54 @@
 function Footer() {
     return (
-        <div className="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-            <div className="container py-5">
-                <div className="row g-5">
-                    <div className="col-lg-3 col-md-6">
-                        <h4 className="text-white mb-4">Our Office</h4>
-                        <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p className="mb-2"><i className="fa fa-envelope me-3"></i>info@example.com</p>
-                        <div className="d-flex pt-2">
-                            <a className="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+        <div className="container-fluid bg-warning text-dark footer mt-0 py-1 wow fadeIn" data-wow-delay="0.1s">
+             <div className="row justify-content-center"> 
+             <div className="container py-5">
+                <div className="row g-5">            
+                <div className="col-4 offset-1 col-sm-2">
+                    <h5>Links</h5>
+                    <ul className="list-unstyled">
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Diễn đàn</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div className="col-7 col-sm-5">
+                    <h5>Về chúng tôi</h5>
+                    <address>
+                      Khu Đô Thị FPT, Hòa Hải<br />
+                      Ngũ Hành Sơn, Đà Nẵng<br />
+                      VIETNAM<br />
+                      <i className="fa fa-phone fa-lg"></i>: +84123456789<br />
+                      <i className="fa fa-fax fa-lg"></i>: +84123456789<br />
+                      <i className="fa fa-envelope fa-lg"></i>: <a href="example@fpt.edu.vn">
+                        example@fpt.edu.vn</a>
+                    </address>
+                </div>
+                <div className="col-12 col-sm-4 align-self-center">
+                <div className="d-flex pt-5">
+                            <a className="btn btn-square btn-outline-primary rounded-circle me-2 fw-bold" href=""><i
                                 className="fab fa-twitter"></i></a>
-                            <a className="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                            <a className="btn btn-square btn-outline-primary rounded-circle me-2 fw-bold" href=""><i
                                 className="fab fa-facebook-f"></i></a>
-                            <a className="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                            <a className="btn btn-square btn-outline-danger rounded-circle me-2 fw-bold" href=""><i
                                 className="fab fa-youtube"></i></a>
-                            <a className="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                            <a className="btn btn-square btn-outline-dark rounded-circle me-2 fw-bold" href=""><i
                                 className="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div className="col-lg-3 col-md-6">
-                        <h4 className="text-white mb-4">Services</h4>
-                        <a className="btn btn-link" href="">Landscaping</a>
-                        <a className="btn btn-link" href="">Pruning plants</a>
-                        <a className="btn btn-link" href="">Urban Gardening</a>
-                        <a className="btn btn-link" href="">Garden Maintenance</a>
-                        <a className="btn btn-link" href="">Green Technology</a>
-                    </div>
-                    <div className="col-lg-3 col-md-6">
-                        <h4 className="text-white mb-4">Quick Links</h4>
-                        <a className="btn btn-link" href="">About Us</a>
-                        <a className="btn btn-link" href="">Contact Us</a>
-                        <a className="btn btn-link" href="">Our Services</a>
-                        <a className="btn btn-link" href="">Terms & Condition</a>
-                        <a className="btn btn-link" href="">Support</a>
-                    </div>
-                    <div className="col-lg-3 col-md-6">
-                        <h4 className="text-white mb-4">Newsletter</h4>
-                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                        <div className="position-relative w-100">
-                            <input className="form-control bg-light border-light w-100 py-3 ps-4 pe-5" type="text"
-                                   placeholder="Your email"/>
-                                <button type="button"
-                                        className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp
-                                </button>
-                        </div>
-                    </div>
+                        </div>  
                 </div>
             </div>
+            <div className="row justify-content-center">             
+                <div className="col-auto">
+                    <p>© Copyright 2024 by Hải Yến dễ thương</p>
+                </div>
+            </div>
+        </div>
+        </div>
         </div>
     )
 
 }
 export default Footer;
+
+             
