@@ -1,8 +1,9 @@
 import {Link} from "react-router-dom";
+import Button from "../elements/Button";
 
 const Header = () => {
     return (
-        <div>
+        <div >
             <div className="container-fluid bg-warning text-dark px-0 py-0">
                     <div className="col-rtl-5 px-5 text-end">
                         <div className="h-100 d-inline-flex align-items-center mx-n2">
@@ -15,7 +16,7 @@ const Header = () => {
                     </div>
                 </div>
 
-            <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 mt-2 mb-sm-3 mb-lg-0">
+            <nav style={{backgroundColor:"#f7f5f0"}} className="navbar navbar-expand-lg  navbar-light sticky-top p-0 mt-2 mb-sm-3 mb-lg-0">
                 <Link to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
                     <h1 className="m-0">FU Forum</h1>
                 </Link>
@@ -42,14 +43,26 @@ const Header = () => {
                         <a href="contact.html" className="nav-item nav-link">Contact</a>
                     </div>
                     <div className="d-lg-flex justify-content-lg-between">
-                        <Link to="/login" className="btn main-background py-4 px-lg-4 rounded-pill  m-2  d-lg-block">
-                            Đăng nhập
 
-                        </Link>
-                        <Link to="/register" className="btn btn-primary py-4 px-lg-4 py-1 rounded-pill   m-2  d-lg-block">
-                            Đăng kí
+                        <div className="py-4 px-lg-4  m-2  d-lg-block">
+                            <Button
+                                content="Đăng nhập"
+                                color="#ff5e27"
+                                hoverColor="#ff7a27"
+                                link="/login"
+                            ></Button>
+                        </div>
+                        <div className="py-4 px-lg-4  m-2  ">
+                            <Button
+                                content="Đăng kí"
+                                color="#0b5ed7"
+                                hoverColor="#0d6fff"
+                                link="/register"
+                            ></Button>
+                        </div>
 
-                        </Link>
+
+
                     </div>
 
                 </div>
