@@ -8,15 +8,15 @@ const Button = (props) => {
   background-color: ${props.color};
   border-radius: 5px;
 
-  padding: 10px 15px 10px 15px ;
+  padding: 10px 10px 10px 10px ;
   background-repeat: no-repeat;
   cursor: pointer;
   box-sizing: border-box;
-  width: 154px;
+  width: 100px;
   height: 49px;
   color: #fff;
   border: none;
-  font-size: 20px;
+  font-size: 15px;
   transition: all 0.3s ease-in-out;
   z-index: 1;
   overflow: hidden;
