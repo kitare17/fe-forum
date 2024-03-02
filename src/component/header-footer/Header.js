@@ -1,7 +1,22 @@
 import {Link} from "react-router-dom";
 import Button from "../elements/Button";
-
+import {useContext, useEffect, useState} from "react";
+import {UserContext} from "../context/UserContext"
 const Header = () => {
+    // const [userData,setUserData]= useState(JSON.parse(localStorage.getItem("userData")));
+    // useEffect(()=>{
+    //    var newData=JSON.parse(localStorage.getItem("userData"))
+    //     if(newData!=null)
+    //     setUserData({...userData,newData},
+    //         [localStorage.getItem("userData")])
+    //     }
+    // )
+    const userData= useContext(UserContext);
+
+    const logout=()=>{
+        localStorage.removeItem("userData");
+
+    }
     return (
         <div >
             <div className="container-fluid bg-warning text-dark px-0 py-0">
@@ -42,32 +57,58 @@ const Header = () => {
                         </div>
                         <a href="contact.html" className="nav-item nav-link">Contact</a>
                     </div>
-                    <div className="d-lg-flex justify-content-lg-between">
+                    {!userData ?
+                        <div className="d-lg-flex justify-content-lg-between">
 
-                        <div className="py-4 px-lg-4  m-2  d-lg-block">
-                            <Button
-                                content="Đăng nhập"
-                                color="#ff5e27"
-                                hoverColor="#ff7a27"
-                                link="/login"
-                            ></Button>
+                            <div className="py-4 px-lg-4  m-2  d-lg-block">
+                                <Button
+                                    content="Đăng nhập"
+                                    color="#ff5e27"
+                                    hoverColor="#ff7a27"
+                                    link="/login"
+                                ></Button>
+                            </div>
+                            <div className="py-4 px-lg-4  m-2  ">
+                                <Button
+                                    content="Đăng kí"
+                                    color="#0b5ed7"
+                                    hoverColor="#0d6fff"
+                                    link="/register"
+                                ></Button>
+                            </div>
                         </div>
-                        <div className="py-4 px-lg-4  m-2  ">
-                            <Button
-                                content="Đăng kí"
-                                color="#0b5ed7"
-                                hoverColor="#0d6fff"
-                                link="/register"
-                            ></Button>
+
+                        :
+                        <div className="d-lg-flex justify-content-center">
+
+                            <div className="py-4 px-lg-4  m-2  ">
+                                <div className="rounded dropdown "
+                                     style={{
+                                         marginRight:"30px",
+                                         backgroundColor:"#f35b27",
+                                         padding:"10px 15px"
+                                }}>
+                                    <div className="rounded  dropdown-toggle"  id="dropdownMenuButton1"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                        {userData.fullname}
+                                    </div>
+                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a className="dropdown-item" href="#">Action</a></li>
+                                        <li><div onClick={logout} className="dropdown-item" >Đăng xuất</div></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+
+
                         </div>
 
-
-
-                    </div>
+                    }
 
                 </div>
             </nav>
-          
+
         </div>
     );
 }
