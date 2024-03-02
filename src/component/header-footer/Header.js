@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import Button from "../elements/Button";
 import {useContext, useEffect, useState} from "react";
-import {UserContext} from "../../App";
+import {UserContext} from "../context/UserContext";
 
 const Header = () => {
     const {userData,setUserDataF}=useContext(UserContext);

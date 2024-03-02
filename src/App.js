@@ -6,16 +6,13 @@ import {Route, Routes} from "react-router-dom";
 import Register from "./component/include/Register";
 import Login from "./component/include/Login";
 import Dish from "./component/include/Dish";
-import {createContext, useState} from "react";
+import {useState} from "react";
+import {UserProvider} from "./component/context/UserContext";
 
-export const UserContext=createContext();
 function App() {
-    const [userData, setUserData] = useState(null);
-    function setUserDataF(data){
-        setUserData(data);
-    }
+
     return (
-        <UserContext.Provider value={{userData,setUserDataF}} >
+        <UserProvider  >
         <div className="App">
 
                 <Header></Header>
@@ -30,7 +27,7 @@ function App() {
             <Footer></Footer>
 
         </div>
-        </UserContext.Provider>
+        </UserProvider>
 
     );
 }
