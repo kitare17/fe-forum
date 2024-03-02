@@ -1,21 +1,13 @@
 import {Link} from "react-router-dom";
 import Button from "../elements/Button";
 import {useContext, useEffect, useState} from "react";
-import {UserContext} from "../context/UserContext"
-const Header = () => {
-    // const [userData,setUserData]= useState(JSON.parse(localStorage.getItem("userData")));
-    // useEffect(()=>{
-    //    var newData=JSON.parse(localStorage.getItem("userData"))
-    //     if(newData!=null)
-    //     setUserData({...userData,newData},
-    //         [localStorage.getItem("userData")])
-    //     }
-    // )
-    const userData= useContext(UserContext);
+import {UserContext} from "../../App";
 
+const Header = () => {
+    const {userData,setUserDataF}=useContext(UserContext);
     const logout=()=>{
         localStorage.removeItem("userData");
-
+        setUserDataF(null);
     }
     return (
         <div >
@@ -99,13 +91,8 @@ const Header = () => {
                                 </div>
 
                             </div>
-
-
-
                         </div>
-
                     }
-
                 </div>
             </nav>
 

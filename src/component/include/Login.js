@@ -1,15 +1,15 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useContext, useState} from "react";
 import axios from "axios";
-import { Navigate  } from 'react-router-dom';
-import {UserContext} from "../context/UserContext"
+import {UserContext} from "../../App";
+
 function Login() {
     const navigate=useNavigate();
     const [formLogin, setFormLogin] = useState({
         username: "",
         password: ""
     })
-    //var userContext=useContext(UserContext);
+    const {userData,setUserDataF}=useContext(UserContext);
 
     const handleChange = (e) => {
         console.log(e.target.name)
@@ -21,11 +21,13 @@ function Login() {
         const dataRes = await axios.post("http://localhost:3001/users/login", formLogin);
 
 
+
         const dataLocalStorage = dataRes.data;
-        console.log(dataLocalStorage)
+        console.log(dataLocalStorage);
         localStorage.setItem("userData", JSON.stringify(dataLocalStorage));
         console.log(localStorage.getItem("userData"));
-        console.log(dataLocalStorage!==null)
+        console.log(dataLocalStorage!==null);
+        setUserDataF(dataLocalStorage);
         if (dataLocalStorage !== null) navigate("/");
 
 
