@@ -8,6 +8,7 @@ import Login from "./component/include/Login";
 import Dish from "./component/include/Dish";
 import {useState} from "react";
 import {UserProvider} from "./component/context/UserContext";
+import UpdateInfo from './component/include/UpdateInfo';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
                 <Route path='/forum' element={<Dish/>}></Route>
                 <Route path='/register' element={<Register/>}></Route>
                 <Route path='/login' element={<Login/>}></Route>
+                <Route path='/user/updateprofile' element={<UpdateInfo/>}></Route>
             </Routes>
             <Footer></Footer>
 
