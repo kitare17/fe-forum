@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
+import './bootstrap.min.css'
+
 import '../node_modules/bootstrap-social/bootstrap-social.css';
 import {BrowserRouter} from "react-router-dom";
 
