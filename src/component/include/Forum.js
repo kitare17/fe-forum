@@ -30,31 +30,31 @@ function Forum() {
     // fetchData();
     // },[]);
 
-    const listPosts = forumDatas;
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [posts, setPosts] = useState(null);
+    const [maxPage, setMaxPage] = useState(5);
+    //load post from backend
+    useEffect(() => {
+        const fetchData = async () => {
+            console.log("useEffect ne page:"+currentPage);
+            const result = await axios(`http://localhost:3001/posts?page=${currentPage}`);
+            setPosts(result.data.posts);
+            setMaxPage(result.data.maxPage);
+            console.log(result.data);
+        }
+        fetchData();
+    }, [currentPage]);
+
+    function handlePageChange({number}) {
+        console.log(number);
+        setCurrentPage(number);
+
+    }
 
 
     return (
-        // <div className="container">
-        // <h1 className="text-danger">Forum</h1>
-        //     {posts?<>
-        //             <h2>{posts[0].title}</h2>
-        //             <p>{posts[0].detail}</p>
-        //             <p>{posts[0].createdAt}</p>
-        //             <p>{posts[0].statusPost}</p>
-        //         </>
-        //         :<LoadData></LoadData>}
-        //     <Button
-        //     content="Đăng nhập"
-        //     color="#ff5e27"
-        //     hoverColor="#ff7a27"
-        //     link="/login"
-        //     ></Button>
-        // </div>
-
-
         <Container style={{padding: "2% 4%"}}>
-
-
             <Row
                 className="p-title"
                 style={{
@@ -224,10 +224,11 @@ function Forum() {
 
 
                 {/*Tin chính*/}
-                <ListGroup variant="flush">
+
+                {posts ? <ListGroup variant="flush">
 
 
-                    {listPosts.map((item, index) => (
+                    {posts.map((item, index) => (
                         <ListGroup.Item
                             key={index}
                             className="structItem"
@@ -256,7 +257,7 @@ function Forum() {
                                 }}
                             >
                                 <Image
-                                    src={item.author_avatar}
+                                    src="img/user-ava.png"
                                     roundedCircle
                                     style={{
                                         textIndent: "100%",
@@ -318,10 +319,8 @@ function Forum() {
                             lineHeight: 1.26,
                             textDecoration: "none",
                         }}
-                    >
-                      Hot
-                    </span>
-                                        {item.title}
+                    >Hot
+                    </span> {index} {item.title}
                                     </a>
 
                                 </div>
@@ -333,22 +332,20 @@ function Forum() {
                                         marginBottom: 0,
                                     }}
                                 >
-                                    {item.author}
+                                    {item.creator.username}
                                 </div>
                             </Col>
 
 
-
-
-
-
                         </ListGroup.Item>
                     ))}
-                </ListGroup>
+
+                </ListGroup> : <LoadData/>}
+
             </Container>
 
 
-            <PaginationComponent/>
+            <PaginationComponent handlePageChange={handlePageChange} maxPage={maxPage} currentPage={currentPage}/>
         </Container>
 
     );
