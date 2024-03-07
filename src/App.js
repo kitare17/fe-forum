@@ -5,10 +5,10 @@ import Home from "./component/include/Home";
 import {Route, Routes} from "react-router-dom";
 import Register from "./component/include/Register";
 import Login from "./component/include/Login";
-import Dish from "./component/include/Dish";
-import {useState} from "react";
 import {UserProvider} from "./component/context/UserContext";
-import UpdateInfo from './component/include/UpdateInfo';
+
+import UpdateProfile from "./component/include/UpdateProfile";
+import Forum from "./component/include/Forum";
 
 function App() {
 
@@ -21,10 +21,11 @@ function App() {
 
             <Routes>
                 <Route path='/' element={<Home/>}></Route>
-                <Route path='/forum' element={<Dish/>}></Route>
+                <Route path='/forum' element={<Forum/>}></Route>
                 <Route path='/register' element={<Register/>}></Route>
                 <Route path='/login' element={<Login/>}></Route>
-                <Route path='/user/updateprofile' element={<UpdateInfo/>}></Route>
+                <Route path='/update-profile' element={<UpdateProfile/>}></Route>
+
             </Routes>
             <Footer></Footer>
 
