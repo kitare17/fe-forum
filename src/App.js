@@ -9,6 +9,7 @@ import {UserProvider} from "./component/context/UserContext";
 
 import UpdateProfile from "./component/include/UpdateProfile";
 import Forum from "./component/include/Forum";
+import PostDetail from "./component/include/PostDetail";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
                 <Route path='/login' element={<Login/>}></Route>
                 <Route path='/update-profile' element={<UpdateProfile/>}></Route>
                 <Route path='/update-profile/ok' element={<UpdateProfile/>}></Route>
+                <Route path='/posts/:postId' element={<PostDetail/>}></Route>
 
             </Routes>
             <Footer></Footer>

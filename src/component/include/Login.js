@@ -19,8 +19,6 @@ function Login() {
         console.log(formLogin);
         const dataRes = await axios.post("http://localhost:3001/users/login", formLogin);
 
-
-
         const dataLocalStorage = dataRes.data;
         console.log(dataLocalStorage);
         localStorage.setItem("userData", JSON.stringify(dataLocalStorage));

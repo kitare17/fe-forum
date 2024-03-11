@@ -1,13 +1,16 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Button from "../elements/Button";
 import {useContext, useEffect, useState} from "react";
 import {UserContext} from "../context/UserContext";
 
 const Header = () => {
+    const navigate=useNavigate();
     const {userData,setUserDataF}=useContext(UserContext);
     const logout=()=>{
         localStorage.removeItem("userData");
         setUserDataF(null);
+        navigate("/");
+
     }
     return (
         <div >
@@ -34,7 +37,7 @@ const Header = () => {
                 <div className="collapse navbar-collapse d-lg-flex justify-content-lg-between" id="navbarCollapse">
                     <div className="navbar-nav  p-4 p-lg-0 d-lg-flex justify-content-lg-center">
                         <Link to="/" className="nav-item nav-link active">Trang chủ</Link>
-                        <a href="about.html" className="nav-item nav-link">About</a>
+                        <Link to="/posts/65e983e270330b6e4f3ac2a6" className="nav-item nav-link">About</Link>
                         <Link to="/forum"  className="nav-item nav-link">Diễn đàn</Link>
 
                         <div className="nav-item dropdown">
