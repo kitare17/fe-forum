@@ -118,7 +118,8 @@ const Header = () => {
                                         {userData.fullname}
                                     </div>
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><div className="text-center " ><Link style={{color:"black"}} to="/update-profile">Thông tin cá nhân</Link></div></li>
+                                        <li><div className="dropdown-item" ><Link style={{color:"black"}} to="/update-profile">Thông tin cá nhân</Link></div></li>
+                                        <li><div className="dropdown-item" ><Link style={{color:"black"}} to="/update-password">Đổi mật khẩu</Link></div></li>
                                         <li><div onClick={logout} className="dropdown-item" >Đăng xuất</div></li>
                                     </ul>
                                 </div>
