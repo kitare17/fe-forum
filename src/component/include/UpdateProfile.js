@@ -30,7 +30,7 @@ function UpdateProfile() {
             })
     }, [userData])
 
-    const [message, setMessage] = useState('');
+
 
     const handleChange = (e) => {
 
@@ -43,6 +43,7 @@ function UpdateProfile() {
         const dataRes = await axios.put("http://localhost:3001/users/update-profile", formUpdate)
             .then(() => {
                 toast.success("Cập nhật thành công");
+                setUserDataF({...userData,...formUpdate});
             })
             .catch((err) => {
                 toast.warning("Cập nhật thất bại");
@@ -100,10 +101,6 @@ function UpdateProfile() {
                             name="phone"
                             value={formUpdate.phone}
                         />
-                    </div>
-                    <div>
-                        {/* Hiển thị thông báo */}
-                        <p>{message}</p>
                     </div>
                     <div className="text-center mb-4">
                         <button onClick={handleSummit} className="btn btn-warning mr-2">Cập nhật</button>

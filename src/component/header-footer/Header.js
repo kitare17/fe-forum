@@ -6,6 +6,27 @@ import {UserContext} from "../context/UserContext";
 const Header = () => {
     const navigate=useNavigate();
     const {userData,setUserDataF}=useContext(UserContext);
+    useEffect(() => {
+        const handleLoadUserData = () => {
+            const dataLocalStorage = JSON.parse(localStorage.getItem("userData"));
+            if (dataLocalStorage !== null) {
+                setUserDataF({
+                    ...userData,
+                    username: dataLocalStorage.username,
+                    fullname: dataLocalStorage.fullname,
+                    userId: dataLocalStorage.userId,
+                    phone: dataLocalStorage.phone,
+                    token: dataLocalStorage.token,
+                    email: dataLocalStorage.email
+                });
+                console.log("hàm thực hiện"+localStorage.getItem("userData"));
+                console.log("hàm thực hiện"+JSON.stringify(userData));
+            }
+
+
+        }
+        handleLoadUserData();
+    }, [])
     const logout=()=>{
         localStorage.removeItem("userData");
         setUserDataF({
@@ -95,7 +116,7 @@ const Header = () => {
                                         {userData.fullname}
                                     </div>
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><Link to="/update-profile">Thông tin cá nhân</Link></li>
+                                        <li><div className="text-center " ><Link style={{color:"black"}} to="/update-profile">Thông tin cá nhân</Link></div></li>
                                         <li><div onClick={logout} className="dropdown-item" >Đăng xuất</div></li>
                                     </ul>
                                 </div>
