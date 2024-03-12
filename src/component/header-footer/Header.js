@@ -2,6 +2,7 @@ import {Link, useNavigate} from "react-router-dom";
 import Button from "../elements/Button";
 import {useContext, useEffect, useState} from "react";
 import {UserContext} from "../context/UserContext";
+import {toast} from "react-toastify";
 
 const Header = () => {
     const navigate=useNavigate();
@@ -37,6 +38,7 @@ const Header = () => {
             token:null,
             email:null
         });
+        toast.info("Đăng xuất thành công");
         navigate("/");
 
     }
