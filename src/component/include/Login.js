@@ -2,6 +2,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useContext, useState} from "react";
 import axios from "axios";
 import {UserContext} from "../context/UserContext";
+import {toast} from "react-toastify";
 function Login() {
     const navigate=useNavigate();
     const [formLogin, setFormLogin] = useState({
@@ -16,7 +17,7 @@ function Login() {
         setFormLogin({...formLogin, [e.target.name]: e.target.value});
     }
     const handleSummit = async (e) => {
-        e.defaultPrevented
+        e.preventDefault();
         console.log(formLogin);
         const dataRes = await axios.post("http://localhost:3001/users/login", formLogin);
 
@@ -34,7 +35,10 @@ function Login() {
             token:dataLocalStorage.token,
             email:dataLocalStorage.email
         });
-        if (dataLocalStorage !== null) navigate("/");
+        if (dataLocalStorage !== null) {
+            toast.success("Đăng nhập thành công");
+            navigate("/");
+        }
 
 
     }

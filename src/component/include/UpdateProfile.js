@@ -2,6 +2,7 @@ import {useContext, useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {UserContext} from "../context/UserContext";
+import {toast} from "react-toastify";
 
 function UpdateProfile() {
     const navigate = useNavigate();
@@ -39,14 +40,15 @@ function UpdateProfile() {
 
     const handleSummit = async (e) => {
         e.preventDefault();
-        const dataRes = await axios.put("http://localhost:3001/users/update-profile", formUpdate);
-        if (dataRes.data !== "successfully") { //fix cho nay la xong ? sua ca BE
-            setMessage("fail")
-        } else {
-            setMessage(dataRes.data)
+        const dataRes = await axios.put("http://localhost:3001/users/update-profile", formUpdate)
+            .then(() => {
+                toast.success("Cập nhật thành công");
+            })
+            .catch((err) => {
+                toast.warning("Cập nhật thất bại");
+            })
+        ;
 
-        }
-        // console.log(JSON.stringify(formUpdate));
     }
     console.log("==========>" + JSON.stringify(userData));
     return (

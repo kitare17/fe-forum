@@ -10,28 +10,40 @@ import {UserProvider} from "./component/context/UserContext";
 import UpdateProfile from "./component/include/UpdateProfile";
 import Forum from "./component/include/Forum";
 import PostDetail from "./component/include/PostDetail";
+import {ToastContainer} from "react-toastify";
 
 function App() {
 
     return (
-        <UserProvider  >
-        <div className="App">
-
+        <UserProvider>
+            <div className="App">
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
                 <Header></Header>
 
 
-            <Routes>
-                <Route path='/' element={<Home/>}></Route>
-                <Route path='/forum' element={<Forum/>}></Route>
-                <Route path='/register' element={<Register/>}></Route>
-                <Route path='/login' element={<Login/>}></Route>
-                <Route path='/update-profile' element={<UpdateProfile/>}></Route>
-                <Route path='/posts/:postId' element={<PostDetail/>}></Route>
+                <Routes>
+                    <Route path='/' element={<Home/>}></Route>
+                    <Route path='/forum' element={<Forum/>}></Route>
+                    <Route path='/register' element={<Register/>}></Route>
+                    <Route path='/login' element={<Login/>}></Route>
+                    <Route path='/update-profile' element={<UpdateProfile/>}></Route>
+                    <Route path='/posts/:postId' element={<PostDetail/>}></Route>
 
-            </Routes>
-            <Footer></Footer>
+                </Routes>
+                <Footer></Footer>
 
-        </div>
+            </div>
         </UserProvider>
 
     );
