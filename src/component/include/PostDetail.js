@@ -75,6 +75,7 @@ function PostDetail() {
                     detail: ""
                 })
                 setSummit(submit ? 0 : 1);
+                toast.success("Đã comment");
             })
             .catch(error => {
                 toast.error("Hệ thống lỗi");
