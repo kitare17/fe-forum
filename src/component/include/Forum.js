@@ -17,6 +17,7 @@ import {
     ListGroup,
 } from "react-bootstrap";
 import forumDatas from "../../data";
+import {Link} from "react-router-dom";
 
 function Forum() {
     // let [posts,setPosts]=useState();
@@ -275,7 +276,7 @@ function Forum() {
                                 />
                             </Col>
 
-
+                           <Link to={`/posts/${item._id}`}>
                             <Col
                                 className="structItem-cell structItem-cell--main"
                                 style={{
@@ -335,7 +336,7 @@ function Forum() {
                                     {item.creator.username}
                                 </div>
                             </Col>
-
+                           </Link>
 
                         </ListGroup.Item>
                     ))}

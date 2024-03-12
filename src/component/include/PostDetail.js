@@ -14,7 +14,7 @@ function PostDetail() {
     //param submit to refresh post when comment
     const [submit, setSummit] = useState(0);
     const [post, setPost] = useState({
-        _id: postId,
+        _id: "",
         title: "",
         detail: "",
         creator: {},
@@ -24,7 +24,7 @@ function PostDetail() {
 
     //post comment info
     const [commentPost, setCommentPost] = useState({
-        _id: postId,
+        _id: post._id,
         detail: " ",
         userComment: " "
     })
@@ -42,18 +42,20 @@ function PostDetail() {
     //Get info about post
     useEffect(() => {
         const handleGetPost = () => {
-            axios.get('http://localhost:3001/posts/65e983e270330b6e4f3ac2a6')
+            axios.get(`http://localhost:3001/posts/${postId}`)
                 .then(response => {
                     console.log(response.data);
-                    setPost(response.data);
+                    setPost({
+                        ...post,
+                        ...response.data});
                 })
                 .catch(error => {
                     console.error('There was an error!', error);
                 });
         }
         handleGetPost();
-    }, [submit]);
-
+    }, [postId,submit]);
+    //
 
     //handle change textarea
     const handleChange = (e) => {
@@ -65,7 +67,7 @@ function PostDetail() {
     // handle submit textarea
     function handleSummit(e) {
         e.preventDefault();
-        axios.put(`http://localhost:3001/posts/${commentPost._id}/comments`, {
+        axios.put(`http://localhost:3001/posts/${post._id}/comments`, {
             commentPost
         })
             .then(response => {
@@ -123,8 +125,6 @@ function PostDetail() {
                     </form> : <></>
 
             }
-
-
             </div>
         </div>
 

@@ -19,26 +19,36 @@ function Login() {
     const handleSummit = async (e) => {
         e.preventDefault();
         console.log(formLogin);
-        const dataRes = await axios.post("http://localhost:3001/users/login", formLogin);
+        await axios.post("http://localhost:3001/users/login", formLogin)
+            .then((dataRes)=>{
 
-        const dataLocalStorage = dataRes.data;
-        console.log(dataLocalStorage);
-        localStorage.setItem("userData", JSON.stringify(dataLocalStorage));
-        console.log(localStorage.getItem("userData"));
-        console.log(dataLocalStorage!==null);
-        setUserDataF({
-            ...userData,
-            username:dataLocalStorage.username,
-            fullname:dataLocalStorage.fullname,
-            userId:dataLocalStorage.userId,
-            phone:dataLocalStorage.phone,
-            token:dataLocalStorage.token,
-            email:dataLocalStorage.email
-        });
-        if (dataLocalStorage !== null) {
-            toast.success("Đăng nhập thành công");
-            navigate("/");
-        }
+                const dataLocalStorage = dataRes.data;
+                console.log(dataLocalStorage);
+                localStorage.setItem("userData", JSON.stringify(dataLocalStorage));
+                console.log(localStorage.getItem("userData"));
+                console.log(dataLocalStorage!==null);
+                setUserDataF({
+                    ...userData,
+                    username:dataLocalStorage.username,
+                    fullname:dataLocalStorage.fullname,
+                    userId:dataLocalStorage.userId,
+                    phone:dataLocalStorage.phone,
+                    token:dataLocalStorage.token,
+                    email:dataLocalStorage.email
+                });
+                if (dataLocalStorage !== null) {
+                    toast.success("Đăng nhập thành công");
+                    navigate("/");
+                }
+            })
+            .catch((err)=>{
+                // toast.error("Tài khoản hoặc mật khẩu không chính xác");
+                toast.error(err);
+                }
+            )
+        ;
+
+
 
 
     }
