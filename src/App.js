@@ -26,7 +26,6 @@ function App() {
                 <Route path='/register' element={<Register/>}></Route>
                 <Route path='/login' element={<Login/>}></Route>
                 <Route path='/update-profile' element={<UpdateProfile/>}></Route>
-                <Route path='/update-profile/ok' element={<UpdateProfile/>}></Route>
                 <Route path='/posts/:postId' element={<PostDetail/>}></Route>
 
             </Routes>

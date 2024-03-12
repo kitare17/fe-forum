@@ -3,7 +3,14 @@ import {createContext, useState} from "react";
  const UserContext = createContext();
 
 function UserProvider({children}) {
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState({
+        username:null,
+        fullname:null,
+        userId:null,
+        phone:null,
+        token:null,
+        email:null
+    });
     function setUserDataF(data) {
         setUserData(data);
     }

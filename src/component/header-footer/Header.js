@@ -8,7 +8,14 @@ const Header = () => {
     const {userData,setUserDataF}=useContext(UserContext);
     const logout=()=>{
         localStorage.removeItem("userData");
-        setUserDataF(null);
+        setUserDataF({
+            username:null,
+            fullname:null,
+            userId:null,
+            phone:null,
+            token:null,
+            email:null
+        });
         navigate("/");
 
     }
@@ -52,7 +59,7 @@ const Header = () => {
                         </div>
                         <a href="contact.html" className="nav-item nav-link">Contact</a>
                     </div>
-                    {!userData ?
+                    {!userData.token ?
                         <div className="d-lg-flex justify-content-lg-between">
 
                             <div className="py-4 px-lg-4  m-2  d-lg-block">
@@ -88,7 +95,7 @@ const Header = () => {
                                         {userData.fullname}
                                     </div>
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a className="dropdown-item" href="#">Action</a></li>
+                                        <li><Link to="/update-profile">Thông tin cá nhân</Link></li>
                                         <li><div onClick={logout} className="dropdown-item" >Đăng xuất</div></li>
                                     </ul>
                                 </div>

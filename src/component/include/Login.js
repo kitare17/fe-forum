@@ -15,7 +15,8 @@ function Login() {
         console.log(e.target.value)
         setFormLogin({...formLogin, [e.target.name]: e.target.value});
     }
-    const handleSummit = async () => {
+    const handleSummit = async (e) => {
+        e.defaultPrevented
         console.log(formLogin);
         const dataRes = await axios.post("http://localhost:3001/users/login", formLogin);
 
@@ -24,7 +25,15 @@ function Login() {
         localStorage.setItem("userData", JSON.stringify(dataLocalStorage));
         console.log(localStorage.getItem("userData"));
         console.log(dataLocalStorage!==null);
-        setUserDataF(dataLocalStorage);
+        setUserDataF({
+            ...userData,
+            username:dataLocalStorage.username,
+            fullname:dataLocalStorage.fullname,
+            userId:dataLocalStorage.userId,
+            phone:dataLocalStorage.phone,
+            token:dataLocalStorage.token,
+            email:dataLocalStorage.email
+        });
         if (dataLocalStorage !== null) navigate("/");
 
 
