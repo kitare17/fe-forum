@@ -11,6 +11,7 @@ import UpdateProfile from "./component/include/UpdateProfile";
 import Forum from "./component/include/Forum";
 import PostDetail from "./component/include/PostDetail";
 import {ToastContainer} from "react-toastify";
+import UpdatePassword from './component/include/UpdatePassword';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
                     <Route path='/register' element={<Register/>}></Route>
                     <Route path='/login' element={<Login/>}></Route>
                     <Route path='/update-profile' element={<UpdateProfile/>}></Route>
+                    <Route path='/update-password' element={<UpdatePassword/>}></Route>
                     <Route path='/posts/:postId' element={<PostDetail/>}></Route>
 
                 </Routes>
