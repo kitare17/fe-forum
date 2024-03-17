@@ -56,6 +56,14 @@ function Forum() {
 
     return (
         <Container style={{padding: "2% 4%"}}>
+            <Row>
+                <Col xs={12} >
+                    <div className="d-flex flex-row-reverse">
+                        <Link to="/create-post"><img src="https://img.icons8.com/?size=50&id=95042&format=png" alt=""/> Tạo bài viết</Link>
+
+                    </div>
+                </Col>
+            </Row>
             <Row
                 className="p-title"
                 style={{
@@ -321,7 +329,7 @@ function Forum() {
                             textDecoration: "none",
                         }}
                     >Hot
-                    </span> {index} {item.title}
+                    </span> {item.title}
                                     </a>
 
                                 </div>
